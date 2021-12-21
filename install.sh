@@ -18,7 +18,8 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok
 echo "Checking if $REQUIRED_PKG is installed: $PKG_OK"
 if [ "" = "$PKG_OK" ]; then
   echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-  sudo apt-get install $REQUIRED_PKG
+  sudo apt-get update
+  sudo apt-get install ${REQUIRED_PKG}
 fi
 echo
 
