@@ -142,7 +142,7 @@ echo -e "${CONF}" >> tac.config
 # Create TAC run file (replace with service later)
 
 RUNTAC="#!/bin/bash
-java -jar tac-latest.jar tac.config 2>&1 | tee mainnet-log-$(date '+%Y-%m-%d-%H-%M').txt"
+nohup java -jar tac-latest.jar tac.config > mainnet-log-$(date '+%Y-%m-%d-%H-%M').txt &"
 
 echo -e "${RUNTAC}" > run-tac.sh
 chmod +x run-tac.sh
